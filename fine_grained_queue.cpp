@@ -43,7 +43,6 @@ void FineGrainedQueue::insertIntoMiddle(const int value, const size_t pos)
 	node->next = nullptr;
 
 	Node *currentNode = nullptr;
-	Node *nextNode = nullptr;
 	size_t currentPos = 0;
 
 	_queue_mutex.lock();
@@ -68,7 +67,7 @@ void FineGrainedQueue::insertIntoMiddle(const int value, const size_t pos)
 	while(currentNode && currentPos < pos)
 	{
 		++currentPos;
-		nextNode = currentNode->next;
+		Node *nextNode = currentNode->next;
 		if(nextNode)
 		{
 			nextNode->node_mutex.lock();
