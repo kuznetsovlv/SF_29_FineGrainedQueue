@@ -14,8 +14,8 @@ struct Node
 class FineGrainedQueue
 {
 	private:
-	Node *head;
-	std::mutex queue_mutex;
+	Node *_head;
+	std::mutex _queue_mutex;
 
 	public:
 	FineGrainedQueue();
@@ -23,7 +23,7 @@ class FineGrainedQueue
 	FineGrainedQueue(FineGrainedQueue&&) = delete;
 	~FineGrainedQueue();
 
-	void insertIntoMiddle(int, size_t);
+	void insertIntoMiddle(const int, const size_t);
 
 	FineGrainedQueue& operator=(FineGrainedQueue&) = delete;
 	FineGrainedQueue& operator=(FineGrainedQueue&&) = delete;
